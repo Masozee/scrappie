@@ -1,7 +1,14 @@
-db_username = 'postgres'
-db_password = '687654'
-db_host = '127.0.0.1'
-db_port = 5433
-db_name = 'datacsis'
+import os
+from dotenv import load_dotenv
+
+# Load the .env file
+load_dotenv()
+
+
+db_host = os.environ.get("DB_HOST")
+db_port = os.environ.get("DB_PORT")
+db_name = os.environ.get("DB_NAME")
+db_username = os.environ.get("DB_USERNAME")
+db_password = os.environ.get("DB_PASSWORD")
 
 DB_URL = f'postgresql://{db_username}:{db_password}@{db_host}:{db_port}/{db_name}'
